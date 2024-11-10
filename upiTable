@@ -10,4 +10,4 @@ CREATE TABLE `upi` (
    UNIQUE KEY `UPINumber_UNIQUE` (`UPINumber`),
    KEY `UserId_idx` (`UserId`),
    CONSTRAINT `UserId` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`)
- )
+ );
