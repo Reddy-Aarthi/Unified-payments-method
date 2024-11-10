@@ -10,4 +10,4 @@ CREATE TABLE `user` (
    UNIQUE KEY `EmailId_UNIQUE` (`EmailId`),
    UNIQUE KEY `PhoneNumber_UNIQUE` (`PhoneNumber`),
    UNIQUE KEY `UserId_UNIQUE` (`UserId`)
- )
+ );
