@@ -12,4 +12,4 @@ CREATE TABLE `transactions` (
    UNIQUE KEY `TransactionsID_UNIQUE` (`TransactionsID`),
    KEY `CardNumber_idx` (`CardNumber`),
    CONSTRAINT `CardNumber` FOREIGN KEY (`CardNumber`) REFERENCES `bankatmcard` (`CardNumber`)
- )
+ );
