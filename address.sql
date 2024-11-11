@@ -3,4 +3,4 @@ CREATE TABLE `address` (
    `City` varchar(50) NOT NULL,
    `State` varchar(50) NOT NULL,
    PRIMARY KEY (`ZipCode`)
- )
+ );
