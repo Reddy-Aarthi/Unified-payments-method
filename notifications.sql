@@ -1,10 +1,8 @@
-CREATE TABLE `notifications` (
-   `NotificationId` int NOT NULL,
-   `Timestamp` timestamp NOT NULL,
-   `Type` varchar(20) NOT NULL,
-   `Message` varchar(255) DEFAULT NULL,
-   `UserId` int DEFAULT NULL,
-   PRIMARY KEY (`NotificationId`),
-   KEY `UserId_idx` (`UserId`),
-   CONSTRAINT `FK_UserId_Notifications` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`)
+CREATE TABLE notifications (
+   NotificationId INT PRIMARY KEY,
+   Timestamp timestamp NOT NULL,
+   Type VARCHAR(20) NOT NULL,
+   Message VARCHAR(255),
+   UserId INT,
+   CONSTRAINT C_UserId_Notifications FOREIGN KEY (USERID) REFERENCES USER(UserId)
  );

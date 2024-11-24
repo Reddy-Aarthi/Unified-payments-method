@@ -1,10 +1,7 @@
-CREATE TABLE `bankaccount` (
-   `AccountNumber` int NOT NULL,
-   `Balance` decimal(15,2) DEFAULT NULL,
-   `AccountType` varchar(20) DEFAULT NULL,
-   `GovtId` varchar(20) NOT NULL,
-   PRIMARY KEY (`AccountNumber`),
-   UNIQUE KEY `AccountNumber_UNIQUE` (`AccountNumber`),
-   UNIQUE KEY `GovtId_UNIQUE` (`GovtId`),
-   CONSTRAINT `GovtId` FOREIGN KEY (`GovtId`) REFERENCES `kyc` (`GovtId`)
+CREATE TABLE bankaccount (
+   AccountNumber INT PRIMARY KEY,
+   Balance DECIMAL(15,2) NOT NULL,
+   AccountType VARCHAR(20) NOT NULL,
+   GovtId VARCHAR(20) NOT NULL,
+   CONSTRAINT CGovtid_FK  FOREIGN KEY (GovtId) REFERENCES KYC(GovtId)
  );

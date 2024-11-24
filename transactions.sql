@@ -1,15 +1,12 @@
-CREATE TABLE `transactions` (
-   `TransactionsID` int NOT NULL,
-   `TransactionsDate` date DEFAULT NULL,
-   `TransactionsTime` timestamp NULL DEFAULT NULL,
-   `TransactionsLimit` decimal(15,2) DEFAULT NULL,
-   `TransactionsAmount` decimal(15,2) DEFAULT NULL,
-   `TransactionsType` varchar(10) DEFAULT NULL,
-   `Credit` tinyint(1) DEFAULT NULL,
-   `Debit` tinyint(1) DEFAULT NULL,
-   `CardNumber` varchar(16) DEFAULT NULL,
-   PRIMARY KEY (`TransactionsID`),
-   UNIQUE KEY `TransactionsID_UNIQUE` (`TransactionsID`),
-   KEY `CardNumber_idx` (`CardNumber`),
-   CONSTRAINT `CardNumber` FOREIGN KEY (`CardNumber`) REFERENCES `bankatmcard` (`CardNumber`)
+CREATE TABLE Transactions (
+   TransactionsID INT PRIMARY KEY,
+   TransactionsDate DATE NOT NULL,
+   TransactionsTime TIMESTAMP NOT NULL,
+   TransactionsLimit DECIMAL(15,2),
+   TransactionsAmount DECIMAL(15,2) NOT NULL,
+   TransactionsType VARCHAR(10) NOT NULL,
+   Credit TINYINT(1),
+   Debit TINYINT(1),
+   CardNumber varchar(16),
+   CONSTRAINT C_CardNum_FK FOREIGN KEY (CardNumber) REFERENCES BANKATMCARD (CardNumber)
  );
