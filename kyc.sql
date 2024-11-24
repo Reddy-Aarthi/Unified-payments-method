@@ -7,4 +7,4 @@ CREATE TABLE `kyc` (
    `Gender` varchar(10) DEFAULT NULL,
    PRIMARY KEY (`GovtId`),
    UNIQUE KEY `GovtId_UNIQUE` (`GovtId`)
- )
+ );
