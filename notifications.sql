@@ -7,4 +7,4 @@ CREATE TABLE `notifications` (
    PRIMARY KEY (`NotificationId`),
    KEY `UserId_idx` (`UserId`),
    CONSTRAINT `FK_UserId_Notifications` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`)
- )
+ );
