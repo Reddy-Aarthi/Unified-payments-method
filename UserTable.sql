@@ -6,6 +6,7 @@ CREATE TABLE `user` (
    `EmailId` varchar(100) NOT NULL,
    `Address` varchar(255) NOT NULL,
    `ZipCode` varchar(10) NOT NULL,
+   `Password` varchar(6) NOT NULL
    PRIMARY KEY (`UserId`),
    UNIQUE KEY `EmailId_UNIQUE` (`EmailId`),
    UNIQUE KEY `PhoneNumber_UNIQUE` (`PhoneNumber`),
