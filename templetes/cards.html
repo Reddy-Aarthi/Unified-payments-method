@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Your Cards{% endblock %}
+{% block content %}
+<h2>Your Bank Cards</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Card Number</th>
+            <th>Card Holder Name</th>
+            <th>Expiry Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for card in cards %}
+        <tr>
+            <td>{{ card.CardNumber }}</td>
+            <td>{{ card.CardHolderName }}</td>
+            <td>{{ card.ExpiryMonth }}/{{ card.ExpiryYear }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

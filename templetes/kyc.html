@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}KYC Details{% endblock %}
+{% block content %}
+<h2>KYC Information</h2>
+{% if kyc %}
+<div class="kyc-container">
+    <p><strong>Government ID:</strong> {{ kyc.GovtId }}</p>
+    <p><strong>First Name:</strong> {{ kyc.FirstName }}</p>
+    <p><strong>Last Name:</strong> {{ kyc.LastName }}</p>
+    <p><strong>Date of Birth:</strong> {{ kyc.DOB }}</p>
+    <p><strong>Nationality:</strong> {{ kyc.Nationality }}</p>
+    <p><strong>Gender:</strong> {{ kyc.Gender }}</p>
+</div>
+{% else %}
+<p>No KYC details available.</p>
+{% endif %}
+{% endblock %}
