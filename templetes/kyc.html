@@ -1,17 +1,97 @@
-{% extends 'base.html' %}
-{% block title %}KYC Details{% endblock %}
-{% block content %}
-<h2>KYC Information</h2>
-{% if kyc %}
-<div class="kyc-container">
-    <p><strong>Government ID:</strong> {{ kyc.GovtId }}</p>
-    <p><strong>First Name:</strong> {{ kyc.FirstName }}</p>
-    <p><strong>Last Name:</strong> {{ kyc.LastName }}</p>
-    <p><strong>Date of Birth:</strong> {{ kyc.DOB }}</p>
-    <p><strong>Nationality:</strong> {{ kyc.Nationality }}</p>
-    <p><strong>Gender:</strong> {{ kyc.Gender }}</p>
-</div>
-{% else %}
-<p>No KYC details available.</p>
-{% endif %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1ec3b7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #16a58f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>KYC Form</h2>
+        <form action="#" method="POST">
+            <label for="govt-id">Government ID:</label>
+            <input type="text" id="govt-id" name="govt-id" required>
+
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="nationality">Nationality:</label>
+            <input type="text" id="nationality" name="nationality" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

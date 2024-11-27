@@ -58,7 +58,7 @@
             color: #888;
         }
 
-        button.login-btn, button.create-account-btn {
+        button.login-btn, button.createaccount-btn {
             background-color: #1ec3b7;
             color: white;
             border: none;
@@ -70,7 +70,7 @@
             margin-top: 10px;
         }
 
-        button.login-btn:hover, button.create-account-btn:hover {
+        button.login-btn:hover, button.createaccount-btn:hover {
             background-color: #16a58f;
         }
 
@@ -87,27 +87,58 @@
         p a:hover {
             text-decoration: underline;
         }
+
+        /* Error message styling */
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h2>User Login</h2>
-        <form action="#" method="post">
+        <form id="loginForm" action="#" method="post" onsubmit="return validateLogin();">
             <div class="input-group">
                 <span class="icon"><i class="fas fa-user"></i></span>
-                <input type="text" name="username" placeholder="Username" required>
+                <input type="text" name="username" id="username" placeholder="Username" required>
             </div>
             <div class="input-group">
                 <span class="icon"><i class="fas fa-lock"></i></span>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" id="password" placeholder="Password" required>
             </div>
             <button type="submit" class="login-btn">Login</button>
-            <button type="button" class="create-account-btn">Create Account</button>
+            <button type="button" class="createaccount-btn" onclick="window.location.href='createAccount.html';">Create Account</button>
             <p><a href="#">Forgot password?</a></p>
         </form>
+        <p class="error-message" id="errorMessage" style="display: none;">You entered an incorrect username or password.</p>
     </div>
 
     <!-- Include FontAwesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script>
+        // Hardcoded credentials (for demonstration purposes)
+        const validUsername = "user123";
+        const validPassword = "password123";
+
+        function validateLogin() {
+            // Get the entered username and password
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Check if the credentials are correct
+            if (username === validUsername && password === validPassword) {
+                // Redirect to user_home page if credentials are correct
+                window.location.href = "user_home.html";
+                return false; // Prevent form submission
+            } else {
+                // Show error message if credentials are incorrect
+                const errorMessage = document.getElementById("errorMessage");
+                errorMessage.style.display = "block";
+                return false; // Prevent form submission
+            }
+        }
+    </script>
 </body>
 </html>
