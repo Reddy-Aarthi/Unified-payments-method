@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1ec3b7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 20px;
+            padding-left: 40px; /* Space for icon */
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-group .icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        button.login-btn {
+            background-color: #1ec3b7;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button.login-btn:hover {
+            background-color: #16a58f;
+        }
+
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        p a {
+            color: #1ec3b7;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Remove bullet point from the list */
+        ul {
+            list-style-type: none; /* Removes the bullet point */
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        /* Style the Create Account link like a button */
+        ul li a {
+            display: inline-block;
+            background-color: #1ec3b7;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        ul li a:hover {
+            background-color: #16a58f;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>User Login</h2>
+        <form id="loginForm" action="/" method="post" onsubmit="return validateForm();">
+            <!-- Email input field -->
+            <div class="input-group">
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <span class="icon"><i class="fas fa-lock"></i></span>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+
+            <!-- Use url_for for Create Account link -->
+            <ul>
+                <li><a href="{{ url_for('createAccount') }}">Create Account</a></li>
+            </ul>
+            
+            <p><a href="#">Forgot password?</a></p>
+        </form>
+
+        <!-- Error message: displayed only if the error exists -->
+        <p class="error-message" id="errorMessage">
+            Invalid login credentials. Please try again.
+        </p>
+    </div>
+
+    <script>
+        // JavaScript function to validate form input or handle errors
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            if (email === "" || password === "") {
+                document.getElementById("errorMessage").style.display = "block";
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
