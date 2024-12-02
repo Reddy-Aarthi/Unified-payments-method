@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Welcome to UPI Dashboard</h2>
+        <div id="upi-details"></div>
+        <form id="transactionForm">
+            <input type="text" id="amount" placeholder="Amount" required>
+            <select id="transactionType">
+                <option value="debit">Debit</option>
+                <option value="credit">Credit</option>
+            </select>
+            <button type="submit">Make Transaction</button>
+        </form>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

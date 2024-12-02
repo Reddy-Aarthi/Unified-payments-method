@@ -140,8 +140,8 @@
 
     <main>
         <div class="main-buttons" id="mainButtons">
-            <button id="Payment" onclick="showPayment()">Payment</button>
-            <button id="QR-Code">QR Code</button>
+            <button id="upiPay" onclick="showPayment('upi')">UPI Pay</button>
+            <button id="cardPay" onclick="showPayment('card')">Card Pay</button>
         </div>
 
         <!-- Payment Container -->
@@ -155,6 +155,8 @@
     </main>
 
     <script>
+        let isKycCompleted = false; // Simulate whether KYC is completed
+
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
@@ -163,7 +165,7 @@
         // Close menu when clicking outside
         window.onclick = function(event) {
             const paymentContainer = document.getElementById('paymentContainer');
-            const paymentButton = document.getElementById('Payment');
+            const paymentButton = document.getElementById('upiPay');
 
             // If the click is outside the payment container and the payment button, hide the container
             if (!paymentContainer.contains(event.target) && event.target !== paymentButton) {
@@ -180,12 +182,16 @@
             }
         };
 
-        // Show Payment container and hide main buttons
-        function showPayment() {
+        // Show Payment container and enforce KYC requirement
+        function showPayment(type) {
+            if (!isKycCompleted) {
+                alert("KYC is mandatory to perform any transactions. Please complete your KYC first.");
+                return;
+            }
+
             const mainButtons = document.getElementById('mainButtons');
             const paymentContainer = document.getElementById('paymentContainer');
 
-            // Hide the main buttons and show payment container
             mainButtons.style.display = 'none';
             paymentContainer.style.display = 'block';
         }
@@ -194,6 +200,7 @@
         function pay() {
             const upiId = document.getElementById('upiId').value;
             const amount = document.getElementById('amount').value;
+
             if (upiId && amount) {
                 alert(`Payment of ₹${amount} will be made to UPI ID: ${upiId}`);
                 // You can add real payment processing here
